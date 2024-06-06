@@ -1,0 +1,47 @@
+@import "vendors/include-media";
+@import "base/variables";
+
+:root {
+	// --- HTML style
+	--rem-base: 10px;
+	// --- Body style
+	--base-font-size: 16px;
+	--base-line-height: 1.5;
+	--vertical-rhythm: calc(var(--base-line-height) * 1em);
+
+	// --- Colors
+	--brand-color: #{$brand-color};
+	--white-color: #{$white-color};
+	--gray-color: #{$gray-color};
+	--base-link-color: #{$brand-color};
+	--border-color: #{$light-gray-color};
+	--headings: #{$brand-color};
+	--red-color: #{$red-color};
+	--light-red-color: #{$light-red-color};
+
+	// --- Animation
+	--animation-duration: 0.3s;
+	--animation-timing-function: ease;
+	
+	// Gutter
+	--gutter: #{$gutter};
+	
+	@include media("iphoneX") {
+		--gutter: 50px;
+	}
+
+	// --- Css variable for h1-h6 font-size
+	@each $name, $array in $h1-h6-font-size {
+		@if ($name == "default") {
+			@for $i from 1 through length($array) {
+				--h#{$i}: #{nth($array, $i)};
+			}
+		} @else {
+			@include media("<=#{$name}") {
+				@for $i from 1 through length($array) {
+					--h#{$i}: #{nth($array, $i)};
+				}
+			}
+		}
+	}
+}

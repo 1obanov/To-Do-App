@@ -1,0 +1,54 @@
+---
+title: Finalsite
+---
+{% include 'src/template/head.html' %}
+
+<body>
+	<div class="wrapper">
+		{% include 'src/template/header.html' %}
+		<main class="main">
+			<div class="todo-app">
+				<div class="container _small">
+					<div class="headline">
+						<h3 class="headline-title">To do list</h3>
+						<div id="tasks-left-message" style="display: none;">Completed <span id="completed-tasks-count">0</span> of <span id="all-tasks-count">0</span></div>
+						<div id="success-message" style="display: none;">Congrats, you finished your list!</div>
+					</div>
+					<div class="info">
+						<div id="clear-all">
+							<button id="clear-all-button">
+								Clear all.
+							</button>
+						</div>
+						<div id="clear-completed">
+							<button id="clear-completed-button">
+								Clear completed.
+							</button>
+						</div>
+					</div>
+					<span id="no-tasks-message" style="display: none;">
+						You have nothing to do yet, just relax
+						<img src="img/icons/emoji-face.svg" alt="emoji face">
+					</span>
+					<ul id="todo-list" class="todo-list"></ul>
+				</div>
+			</div>
+
+			<div id="todo-add" class="todo-add">
+				<form>
+					<input type="text" id="todo-add-input" placeholder="Add to do item">
+					<button id="todo-add-button">
+						<img src="img/icons/add-icon.svg" alt="add icon">
+					</button>
+				</form>
+			</div>
+		</main>
+
+		<div id="modal-warning" class="modal-warning">
+			<div class="icon">!</div>
+			<p>Please enter something to add an item!</p>
+		</div>
+	</div>
+	{% include 'src/template/includes.html' %}
+</body>
+</html>

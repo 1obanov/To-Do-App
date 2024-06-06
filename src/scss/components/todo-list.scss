@@ -1,0 +1,137 @@
+.todo-list {
+	padding: 0;
+	margin: 1.5rem 0 0 0;
+
+	li {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 20px;
+		position: relative;
+		margin-bottom: 1rem;
+		border: 1px solid rgb(var(--border-color));
+		border-radius: 8px;
+		transition: box-shadow var(--animation-duration)
+			var(--animation-timing-function);
+		padding: 14px 20px;
+
+		@include media("<tablet") {
+			padding: 14px;
+		}
+
+		@include hover-supported() {
+			box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		.content {
+			width: 100%;
+			position: relative;
+			display: flex;
+			align-items: flex-start;
+
+			input[type="checkbox"] {
+				padding: 0;
+				height: initial;
+				width: initial;
+				margin-bottom: 0;
+				display: none;
+			}
+
+			label {
+				position: relative;
+				display: flex;
+
+				.checkbox {
+					background-color: rgba(var(--border-color), 0.4);
+					border: 1px solid rgb(var(--border-color));
+					display: flex;
+					position: relative;
+					width: 16px;
+					height: 16px;
+					cursor: pointer;
+					margin: 4px 10px 0 0;
+					flex-shrink: 0;
+					transition: border var(--animation-duration)
+						var(--animation-timing-function);
+
+					@include hover-supported() {
+						border: 1px solid rgba(var(--brand-color), 0.1);
+					}
+				}
+
+				.label {
+					word-break: break-word;
+
+					&:read-write:focus {
+						outline: none;
+					}
+				}
+			}
+		}
+
+		.amends {
+			display: flex;
+			align-items: center;
+			gap: 15px;
+			min-height: 24px;
+
+			.edit,
+			.remove {
+				font-size: 12px;
+				color: rgb(var(--gray-color));
+				cursor: pointer;
+				transition: color var(--animation-duration)
+					var(--animation-timing-function);
+
+				@include hover-supported() {
+					color: rgb(var(--brand-color));
+				}
+
+				&.disabled {
+					pointer-events: none;
+					opacity: 0.5;
+				}
+			}
+		}
+
+		&.completed {
+			background: rgba(var(--border-color), 0.4);
+			.content {
+				label {
+					.checkbox {
+						background: rgb(var(--white-color));
+
+						&:after {
+							position: absolute;
+							content: "";
+							background-image: url("../img/icons/long-tick.svg");
+							background-repeat: no-repeat;
+							width: 16px;
+							height: 17px;
+							top: -4px;
+							left: 2px;
+						}
+					}
+
+					.label {
+						text-decoration: line-through;
+						color: rgb(var(--gray-color));
+					}
+				}
+			}
+		}
+
+		&.disabled {
+			pointer-events: none;
+			opacity: 0.5;
+		}
+
+		&.active {
+			border: 1px solid rgba(var(--brand-color), 0.3);
+		}
+	}
+}

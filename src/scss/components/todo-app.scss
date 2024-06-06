@@ -1,0 +1,74 @@
+.todo-app {
+	padding: 5rem 0 13rem;
+
+	.info {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 10px;
+
+		#clear-completed,
+		#clear-all {
+			&-button {
+				border: none;
+				background: none;
+				color: rgb(var(--brand-color));
+				position: relative;
+				padding: 0;
+				margin: 0;
+				flex-shrink: 0;
+				position: relative;
+				font-size: 14px;
+				display: flex;
+				align-items: center;
+				gap: 3px;
+				transition: color var(--animation-duration)
+					var(--animation-timing-function);
+
+				@include hover-supported() {
+					color: rgba(var(--brand-color), 0.7);
+
+					svg {
+						path {
+							fill: rgba(var(--brand-color), 0.7);
+						}
+					}
+				}
+			}
+
+			&.hidden {
+				opacity: 0.4;
+				cursor: not-allowed;
+
+				button {
+					pointer-events: none;
+				}
+			}
+		}
+	}
+
+	#no-tasks-message {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		text-transform: uppercase;
+		font-size: 14px;
+		font-weight: 700;
+		color: rgb(var(--gray-color));
+		letter-spacing: 0.05rem;
+
+		@include media("<tablet") {
+			font-size: 12px;
+		}
+
+		img {
+			max-width: 16px;
+		}
+	}
+	#tasks-left-message,
+	#success-message {
+		@include media("<tablet") {
+			font-size: 14px;
+		}
+	}
+}

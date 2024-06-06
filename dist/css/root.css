@@ -1,0 +1,38 @@
+:root {
+	--rem-base: 10px;
+	--base-font-size: 16px;
+	--base-line-height: 1.5;
+	--vertical-rhythm: calc(var(--base-line-height) * 1em);
+	--brand-color: 21, 24, 26;
+	--white-color: 255, 255, 255;
+	--gray-color: 118, 118, 118;
+	--base-link-color: 21, 24, 26;
+	--border-color: 238, 238, 238;
+	--headings: 21, 24, 26;
+	--red-color: 78, 23, 26;
+	--light-red-color: 255, 204, 203;
+	--animation-duration: 0.3s;
+	--animation-timing-function: ease;
+	--gutter: 20px;
+	--h1: 3.4rem;
+	--h2: 3rem;
+	--h3: 2.4rem;
+	--h4: 2rem;
+	--h5: 1.6rem;
+	--h6: 1rem;
+}
+@media (max-width: 768px) {
+	:root {
+		--h1: 30px;
+		--h2: 24px;
+		--h3: 20px;
+		--h4: 18px;
+		--h5: 16px;
+		--h6: 14px;
+	}
+}
+@media (min-width: 812px) and (max-height: 414px) and (orientation: landscape) {
+	:root {
+		--gutter: 50px;
+	}
+}

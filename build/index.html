@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, viewport-fit=cover">
+	<meta name="description" content="Project for Finalsite company">
+	<link media="all" rel="stylesheet" href="css/root.css">
+	<link media="all" rel="stylesheet" href="css/style.css">
+	<title>Finalsite</title>
+</head>
+
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+	<div class="container">
+		<a href="" class="logo">
+			Done.
+		</a>
+		<a href="https://www.linkedin.com/in/ihor-lobanov/" target="_blank" class="link">
+			by Ihor Lobanov.
+		</a>
+	</div>
+</header>
+
+		<main class="main">
+			<div class="todo-app">
+				<div class="container _small">
+					<div class="headline">
+						<h3 class="headline-title">To do list</h3>
+						<div id="tasks-left-message" style="display: none;">Completed <span id="completed-tasks-count">0</span> of <span id="all-tasks-count">0</span></div>
+						<div id="success-message" style="display: none;">Congrats, you finished your list!</div>
+					</div>
+					<div class="info">
+						<div id="clear-all">
+							<button id="clear-all-button">
+								Clear all.
+							</button>
+						</div>
+						<div id="clear-completed">
+							<button id="clear-completed-button">
+								Clear completed.
+							</button>
+						</div>
+					</div>
+					<span id="no-tasks-message" style="display: none;">
+						You have nothing to do yet, just relax
+						<img src="img/icons/emoji-face.svg" alt="emoji face">
+					</span>
+					<ul id="todo-list" class="todo-list"></ul>
+				</div>
+			</div>
+
+			<div id="todo-add" class="todo-add">
+				<form>
+					<input type="text" id="todo-add-input" placeholder="Add to do item">
+					<button id="todo-add-button">
+						<img src="img/icons/add-icon.svg" alt="add icon">
+					</button>
+				</form>
+			</div>
+		</main>
+
+		<div id="modal-warning" class="modal-warning">
+			<div class="icon">!</div>
+			<p>Please enter something to add an item!</p>
+		</div>
+	</div>
+	<script src="js/main.js" defer=""></script>
+
+
+
+</body></html>

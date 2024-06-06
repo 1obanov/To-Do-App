@@ -1,0 +1,129 @@
+//-------------------- #html
+html {
+	font-size: var(--rem-base);
+	box-sizing: border-box;
+	padding: constant(safe-area-inset);
+	padding: env(safe-area-inset);
+
+	@include media("<=desktop") {
+		font-size: calc(var(--rem-base) - 1.5px);
+	}
+
+	@include media("<=tablet") {
+		font-size: calc(var(--rem-base) - 2px);
+	}
+
+	@include media("<=phone") {
+		font-size: calc(var(--rem-base) - 2.5px);
+	}
+
+	@include media("<=phone-xs") {
+		overflow-x: hidden;
+		font-size: calc(var(--rem-base) - 3px);
+	}
+}
+
+//-------------------- #body
+body {
+	color: rgb(var(--brand-color));
+	font: var(--base-font-size) / var(--base-line-height) $base-font;
+	min-width: 320px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+//---------------- #h style h1-h6
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+.h {
+	font-family: $base-font;
+	font-weight: bold;
+	color: rgb(var(--headings));
+
+	a {
+		color: inherit;
+		font-size: inherit;
+	}
+}
+
+h1,
+.h1 {
+	font-size: var(--h1);
+	margin: 0 0 0.3em;
+}
+
+h2,
+.h2 {
+	font-size: var(--h2);
+	margin: 0 0 0.4em;
+}
+
+h3,
+.h3 {
+	font-size: var(--h3);
+	margin: 0 0 0.5em;
+}
+
+h4,
+.h4 {
+	font-size: var(--h4);
+	margin: 0 0 0.6em;
+}
+
+h5,
+.h5 {
+	font-size: var(--h5);
+	margin: 0 0 0.7em;
+}
+
+h6,
+.h6 {
+	font-size: var(--h6);
+	margin: 0 0 0.8em;
+}
+
+//------------------- #p
+p {
+	margin-bottom: 1.2em;
+	margin-top: 0;
+}
+
+//------------------- #a
+a {
+	color: rgb(var(--base-link-color));
+	text-decoration: none;
+	transition: all var(--animation-duration) var(--animation-timing-function);
+
+	@include hover-supported() {
+		opacity: 0.8;
+	}
+}
+
+//------------------- #img
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+
+//----------------------------- #ol #ul #li
+ul,
+ol {
+	list-style: none;
+	margin-top: 0;
+	padding-left: 0px;
+
+	li {
+		list-style: none;
+	}
+}

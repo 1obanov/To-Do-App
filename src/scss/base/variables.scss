@@ -1,0 +1,54 @@
+$breakpoints: (
+	"full": 1920px,
+	"xl": 1680px,
+	"macbook": 1440px,
+	"ipad-pro": 1366px,
+	"desktop-md": 1200px,
+	"desktop": 1024px,
+	"tablet": 768px,
+	"phone": 667px,
+	"phone-md": 568px,
+	"phone-sm": 480px,
+	"phone-xs": 375px
+);
+
+// keywords
+$media-expressions: (
+	"iphoneX":
+		"(min-width: 812px) and (max-height: 414px) and (orientation: landscape)",
+	"screen": "screen",
+	"print": "print",
+	"handheld": "handheld",
+	"landscape": "(orientation: landscape)",
+	"portrait": "(orientation: portrait)",
+	"retina2x": "(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)",
+	"retina3x": "(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)"
+);
+
+// Colors theme
+$brand-color: 21, 24, 26;
+$white-color: 255, 255, 255;
+$gray-color: 118, 118, 118;
+$light-gray-color: 238, 238, 238;
+$red-color: 78, 23, 26;
+$light-red-color: 255, 204, 203;
+
+// font-family
+$base-main-font: "Lato";
+$base-font-sans-serif: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+$base-font-serif: "Times New Roman", "Times", "Baskerville", "Georgia", serif;
+$base-font: $base-main-font, $base-font-sans-serif;
+
+// Headers
+$h1-h6-font-size: (
+	// --------- h1 ---- h2 ----h3 ---- h4 -- h5 -- h6 ---
+	"default": (3.4rem, 3rem, 2.4rem, 2rem, 1.6rem, 1rem),
+	"tablet": (30px, 24px, 20px, 18px, 16px, 14px),
+);
+
+// Container
+$gutter: 20px;
+$container: (
+	"default": 1400px,
+	"small": 700px
+);
