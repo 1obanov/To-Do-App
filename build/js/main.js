@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const successMessage = document.getElementById('success-message');
 	const modalWarning = document.getElementById('modal-warning');
 	const clearCompletedButton = document.getElementById('clear-completed-button');
-	const clearAll = document.getElementById('clear-all-button');
+	const clearAllButton = document.getElementById('clear-all-button');
 	
 	// Generate a random ID for each task
 	function generateRandomId() {
@@ -105,9 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Handle task completion functionality
 	function handleCompleteTask(taskElement) {
 		const checkbox = taskElement.querySelector('input[type="checkbox"]');
-		const isCompleted = taskElement.classList.contains('completed');
-	
-		checkbox.checked = isCompleted;
 	
 		taskElement.querySelector('label .checkbox').addEventListener('click', () => {
 			taskElement.classList.toggle('completed');
@@ -121,8 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		let enterKeyPressed = false;
 	
 		editButton.addEventListener('click', () => {
-			const allTasks = todoList.querySelectorAll('li');
-			allTasks.forEach((task) => {
+			todoList.querySelectorAll('li').forEach((task) => {
 				if (task !== taskElement) {
 					task.classList.add('disabled');
 				} else {
@@ -139,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			range.collapse(true);
 			selection.removeAllRanges();
 			selection.addRange(range);
-			label.focus();
 		});
 	
 		label.addEventListener('keypress', (event) => {
@@ -164,16 +159,12 @@ document.addEventListener('DOMContentLoaded', () => {
 					label.removeAttribute('contenteditable');
 					saveTasks();
 				} else {
-					if (taskElement.parentNode === todoList) {
-						todoList.removeChild(taskElement);
-					}
+					todoList.removeChild(taskElement);
 					saveTasks();
 				}
 				
-				const allTasks = todoList.querySelectorAll('li');
-				allTasks.forEach((task) => {
-					task.classList.remove('disabled');
-					task.classList.remove('active');
+				todoList.querySelectorAll('li').forEach((task) => {
+					task.classList.remove('disabled', 'active');
 				});
 	
 				editButton.classList.remove('disabled');
@@ -195,19 +186,19 @@ document.addEventListener('DOMContentLoaded', () => {
 			successMessage.style.display = 'block';
 			tasksLeftMessage.style.display = 'none';
 			clearCompletedButton.style.display = 'flex';
-			clearAll.style.display = 'flex';
+			clearAllButton.style.display = 'flex';
 		} else if (tasksLeft === 0 && todoList.children.length === 0) {
 			tasksLeftMessage.style.display = 'none';
 			successMessage.style.display = 'none';
 			clearCompletedButton.style.display = 'none';
-			clearAll.style.display = 'none';
+			clearAllButton.style.display = 'none';
 			noTasksMessage.style.display = 'flex';
 		} else {
 			noTasksMessage.style.display = 'none';
 			successMessage.style.display = 'none';
 			tasksLeftMessage.style.display = 'block';
 			clearCompletedButton.style.display = 'flex';
-			clearAll.style.display = 'flex';
+			clearAllButton.style.display = 'flex';
 		}
 	
 		if (completedTasks > 0) {
@@ -242,12 +233,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			todoInput.value = '';
 			saveTasks();
 		} else {
-			Toast();
+			showWarningToast();
 		}
 	}
 	
 	// Show a warning toast message
-	function Toast() {
+	function showWarningToast() {
 		modalWarning.classList.add('show');
 		setTimeout(() => {
 			modalWarning.classList.remove('show');
@@ -272,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	clearCompletedButton.addEventListener('click', clearCompletedTasks);
 	
 	// Add event listener for clearing all tasks
-	clearAll.addEventListener('click', clearAllTasks);
+	clearAllButton.addEventListener('click', clearAllTasks);
 	
 	// Initial rendering of the todo list
 	renderTodoList();
